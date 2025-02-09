@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Remover Pro - Suppression d'Arrière-Plan Instantanée</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: #2A4DF4;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .upload-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        .upload-zone {
+            border: 2px dashed #2A4DF4;
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-zone:hover {
+            background: #f4f6ff;
+            transform: translateY(-2px);
+        }
+
+        #preview {
+            max-width: 100%;
+            max-height: 500px;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        button {
+            background: #2A4DF4;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: #1A3AC7;
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            display: none;
+            margin: 2rem 0;
+        }
+
+        .loading-spinner {
+            width: 45px;
+            height: 45px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #2A4DF4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .download-section {
+            display: none;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #666;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 -4px 6px rgba(0,0,0,0.05);
+        }
+
+        .alert {
+            padding: 15px;
+            margin: 1rem 0;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .alert-error {
+            background: #ffe3e3;
+            color: #dc3545;
+            border: 1px solid #ffc9c9;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .upload-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BG Remover Pro</h1>
+            <p>Suppression d'arrière-plan IA en un clic • Résultats professionnels</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="alert alert-error" id="errorAlert"></div>
+            
+            <div class="upload-zone" id="dropZone">
+                <p>📤 Glissez votre image ici (JPG/PNG)</p>
+                <p>ou</p>
+                <button id="uploadBtn">Sélectionner un fichier</button>
+                <input type="file" id="fileInput" hidden accept="image/*">
+            </div>
+
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Analyse par IA en cours...</p>
+            </div>
+
+            <img id="preview" alt="Résultat de la suppression d'arrière-plan">
+
+            <div class="download-section">
+                <button id="downloadBtn">⬇️ Télécharger l'image sans fond</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 BG Remover Pro. Tous droits réservés.<br>
+            Technologie IA de pointe</p>
+        </footer>
+    </div>
+
+    <script>
+        // Configuration (VOTRE CLÉ API EST DÉJÀ INTÉGRÉE)
+        const API_KEY = 'nS3sjxPSwup5tVaYCEx6ZNEm'; // Votre clé API
+        const API_URL = 'https://api.remove.bg/v1.0/removebg';
+
+        // Éléments DOM
+        const elements = {
+            dropZone: document.getElementById('dropZone'),
+            fileInput: document.getElementById('fileInput'),
+            uploadBtn: document.getElementById('uploadBtn'),
+            preview: document.getElementById('preview'),
+            loading: document.querySelector('.loading'),
+            downloadSection: document.querySelector('.download-section'),
+            downloadBtn: document.getElementById('downloadBtn'),
+            errorAlert: document.getElementById('errorAlert')
+        };
+
+        // Gestionnaires d'événements
+        elements.uploadBtn.addEventListener('click', () => elements.fileInput.click());
+        elements.fileInput.addEventListener('change', handleFileSelect);
+        
+        // Glisser-déposer
+        elements.dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            elements.dropZone.style.backgroundColor = '#f4f6ff';
+        });
+
+        elements.dropZone.addEventListener('dragleave', () => {
+            elements.dropZone.style.backgroundColor = 'white';
+        });
+
+        elements.dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            elements.dropZone.style.backgroundColor = 'white';
+            const file = e.dataTransfer.files[0];
+            validateAndProcess(file);
+        });
+
+        // Fonctions principales
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            validateAndProcess(file);
+        }
+
+        function validateAndProcess(file) {
+            elements.errorAlert.style.display = 'none';
+            
+            if (!file) {
+                showError('Aucun fichier sélectionné.');
+                return;
+            }
+            
+            if (!file.type.match(/image\/(png|jpeg|jpg)/)) {
+                showError('Format non supporté. Veuillez utiliser une image JPG/PNG.');
+                return;
+            }
+
+            if (file.size > 5000000) { // 5MB
+                showError('La taille maximale est de 5MB.');
+                return;
+            }
+
+            showPreview(file);
+            processImage(file);
+        }
+
+        function showPreview(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                elements.preview.src = e.target.result;
+                elements.preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function processImage(file) {
+            try {
+                elements.loading.style.display = 'block';
+                elements.downloadSection.style.display = 'none';
+
+                const formData = new FormData();
+                formData.append('image_file', file);
+                formData.append('size', 'auto');
+
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'X-Api-Key': API_KEY
+                    },
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.errors ? errorData.errors[0].title : 'Erreur inconnue');
+                }
+
+                const blob = await response.blob();
+                const resultUrl = URL.createObjectURL(blob);
+                
+                elements.preview.src = resultUrl;
+                elements.downloadSection.style.display = 'block';
+                
+                // Nettoyage mémoire
+                elements.downloadBtn.onclick = () => {
+                    const link = document.createElement('a');
+                    link.download = `sans-fond-${Date.now()}.png`;
+                    link.href = resultUrl;
+                    link.click();
+                    URL.revokeObjectURL(resultUrl);
+                };
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError(`Échec du traitement : ${error.message}`);
+            } finally {
+                elements.loading.style.display = 'none';
+            }
+        }
+
+        function showError(message) {
+            elements.errorAlert.textContent = message;
+            elements.errorAlert.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
