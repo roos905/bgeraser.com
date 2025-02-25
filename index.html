@@ -4,22 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Balises méta SEO -->
-    <title>BG Eraser - Suppression d'Arrière-Plan Instantanée par IA</title>
-    <meta name="description" content="Supprimez l'arrière-plan de vos images en un clic avec BG Eraser. Utilisez notre technologie IA pour des résultats professionnels en quelques secondes.">
-    <meta name="keywords" content="suppression arrière-plan, IA, enlever fond, BG Eraser, outil en ligne, image sans fond">
+    <!-- Balises méta SEO améliorées -->
+    <title>BG Eraser - Suppression d'Arrière-Plan Gratuite et Instantanée par IA</title>
+    <meta name="description" content="Supprimez l'arrière-plan de vos images gratuitement en quelques secondes avec BG Eraser. Notre technologie IA offre des résultats professionnels sans filigrane. Outil facile et rapide.">
+    <meta name="keywords" content="suppression arrière-plan, enlever fond photo, outil gratuit, BG Eraser, IA suppression fond, image sans fond, détourage photo, transparence image, retouche photo, outils graphiques, effacer fond photo">
     <meta name="author" content="WESBRO">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
 
-    <!-- Balises Open Graph (pour les réseaux sociaux) -->
-    <meta property="og:title" content="BG Eraser - Suppression d'Arrière-Plan Instantanée par IA">
-    <meta property="og:description" content="Supprimez l'arrière-plan de vos images en un clic avec BG Eraser. Utilisez notre technologie IA pour des résultats professionnels en quelques secondes.">
-    <meta property="og:image" content="https://www.votresite.com/logo.png"> <!-- Remplacez par l'URL de votre logo ou image -->
-    <meta property="og:url" content="https://www.votresite.com"> <!-- Remplacez par l'URL de votre site -->
+    <!-- Balises Open Graph optimisées -->
+    <meta property="og:title" content="BG Eraser - Suppression d'Arrière-Plan Gratuite par IA">
+    <meta property="og:description" content="Supprimez l'arrière-plan de vos images gratuitement en quelques secondes avec notre technologie IA. Résultats professionnels sans filigrane.">
+    <meta property="og:image" content="https://aieraser.netlify.app/logo.png">
+    <meta property="og:url" content="https://aieraser.netlify.app">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BG Eraser">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card pour les partages sur Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BG Eraser - Suppression d'Arrière-Plan Gratuite par IA">
+    <meta name="twitter:description" content="Supprimez l'arrière-plan de vos images gratuitement en quelques secondes avec notre technologie IA. Résultats professionnels sans filigrane.">
+    <meta name="twitter:image" content="https://aieraser.netlify.app/logo.png">
 
     <!-- Balise canonique -->
-    <link rel="canonical" href="https://www.votresite.com"> <!-- Remplacez par l'URL de votre site -->
+    <link rel="canonical" href="https://aieraser.netlify.app">
+    
+    <!-- Données structurées Schema.org pour les rich snippets Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BG Eraser",
+      "url": "https://aieraser.netlify.app",
+      "description": "Supprimez l'arrière-plan de vos images gratuitement en quelques secondes avec notre technologie IA.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "WESBRO"
+      }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <style>
         * {
@@ -54,6 +88,18 @@
             font-size: 2.8rem;
             margin-bottom: 0.5rem;
             font-weight: 700;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 1rem;
         }
 
         .upload-section {
@@ -131,6 +177,97 @@
             animation: fadeIn 0.5s ease;
         }
 
+        .features-section {
+            margin: 4rem 0;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2A4DF4;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .how-it-works {
+            margin: 4rem 0;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .steps {
+            margin-top: 2rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-number {
+            background: #2A4DF4;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .faq-section {
+            margin: 4rem 0;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
         footer {
             text-align: center;
             margin-top: 4rem;
@@ -139,6 +276,20 @@
             background: #ffffff;
             border-radius: 15px;
             box-shadow: 0 -4px 6px rgba(0,0,0,0.05);
+        }
+
+        .footer-links {
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: #2A4DF4;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
 
         .alert {
@@ -171,6 +322,10 @@
             .upload-section {
                 padding: 1.5rem;
             }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -178,7 +333,7 @@
     <div class="container">
         <header>
             <h1>BG Eraser</h1>
-            <p>Suppression d'arrière-plan IA en un clic • Résultats professionnels</p>
+            <p class="tagline">Suppression d'arrière-plan IA en un clic • Résultats professionnels • 100% Gratuit</p>
             <!-- Publicité Adsterra -->
             <script type="text/javascript">
                 atOptions = {
@@ -193,6 +348,9 @@
         </header>
 
         <div class="upload-section">
+            <h2>Supprimez l'arrière-plan de n'importe quelle image instantanément</h2>
+            <p>Notre technologie IA avancée détecte automatiquement les sujets et supprime l'arrière-plan avec précision</p>
+            
             <div class="alert alert-error" id="errorAlert"></div>
             
             <div class="upload-zone" id="dropZone">
@@ -210,13 +368,95 @@
             <img id="preview" alt="Résultat de la suppression d'arrière-plan" loading="lazy">
 
             <div class="download-section">
-                <button id="downloadBtn"> Télécharger l'image sans fond</button>
+                <button id="downloadBtn">Télécharger l'image sans fond</button>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2>Pourquoi choisir BG Eraser?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Rapide et Simple</div>
+                    <p>Supprimez l'arrière-plan en quelques secondes sans compétences techniques</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-title">Technologie IA avancée</div>
+                    <p>Notre algorithme intelligent détecte parfaitement les contours et les détails</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <div class="feature-title">Haute Qualité</div>
+                    <p>Obtenez des images professionnelles pour vos projets personnels ou commerciaux</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Sécurisé</div>
+                    <p>Vos images sont traitées en toute sécurité et ne sont jamais conservées</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="how-it-works">
+            <h2>Comment ça marche</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Téléchargez votre image</strong>
+                        <p>Glissez-déposez votre photo ou cliquez pour la sélectionner (JPG ou PNG)</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Traitement IA automatique</strong>
+                        <p>Notre intelligence artificielle analyse et supprime l'arrière-plan instantanément</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Téléchargez le résultat</strong>
+                        <p>Récupérez votre image avec fond transparent (format PNG) prête à l'emploi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Questions fréquentes</h2>
+            <div class="faq-item">
+                <div class="faq-question">Est-ce que BG Eraser est vraiment gratuit?</div>
+                <div class="faq-answer">Oui, notre outil de suppression d'arrière-plan est 100% gratuit et sans filigrane.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Quels formats d'image sont supportés?</div>
+                <div class="faq-answer">BG Eraser prend en charge les formats JPG et PNG. Le résultat est toujours fourni en PNG pour préserver la transparence.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Mes images sont-elles conservées sur vos serveurs?</div>
+                <div class="faq-answer">Non, nous ne stockons pas vos images. Elles sont traitées instantanément et supprimées après le traitement.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Quelle est la taille maximale acceptée?</div>
+                <div class="faq-answer">La taille maximale acceptée est de 5 Mo par image.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Puis-je utiliser les images pour un usage commercial?</div>
+                <div class="faq-answer">Oui, vous pouvez utiliser les images traitées pour tout usage personnel ou commercial.</div>
             </div>
         </div>
 
         <footer>
-            <p>© 2025 WESBRO. Tous droits réservés.<br>
-            Technologie IA de pointe</p>
+            <p>© 2025 WESBRO. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Contact</a>
+            </div>
+            <p>Propulsé par la technologie IA de pointe</p>
         </footer>
     </div>
 
@@ -346,4 +586,5 @@
         }
     </script>
 </body>
-    </html>
+</html>
+     
