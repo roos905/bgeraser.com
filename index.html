@@ -2,589 +2,1646 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Balises méta SEO améliorées -->
-    <title>BG Eraser - Suppression d'Arrière-Plan Gratuite et Instantanée par IA</title>
-    <meta name="description" content="Supprimez l'arrière-plan de vos images gratuitement en quelques secondes avec BG Eraser. Notre technologie IA offre des résultats professionnels sans filigrane. Outil facile et rapide.">
-    <meta name="keywords" content="suppression arrière-plan, enlever fond photo, outil gratuit, BG Eraser, IA suppression fond, image sans fond, détourage photo, transparence image, retouche photo, outils graphiques, effacer fond photo">
-    <meta name="author" content="WESBRO">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-
-    <!-- Balises Open Graph optimisées -->
-    <meta property="og:title" content="BG Eraser - Suppression d'Arrière-Plan Gratuite par IA">
-    <meta property="og:description" content="Supprimez l'arrière-plan de vos images gratuitement en quelques secondes avec notre technologie IA. Résultats professionnels sans filigrane.">
-    <meta property="og:image" content="https://aieraser.netlify.app/logo.png">
-    <meta property="og:url" content="https://aieraser.netlify.app">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="BG Eraser">
-    <meta property="og:locale" content="fr_FR">
-
-    <!-- Twitter Card pour les partages sur Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BG Eraser - Suppression d'Arrière-Plan Gratuite par IA">
-    <meta name="twitter:description" content="Supprimez l'arrière-plan de vos images gratuitement en quelques secondes avec notre technologie IA. Résultats professionnels sans filigrane.">
-    <meta name="twitter:image" content="https://aieraser.netlify.app/logo.png">
-
-    <!-- Balise canonique -->
-    <link rel="canonical" href="https://aieraser.netlify.app">
-    
-    <!-- Données structurées Schema.org pour les rich snippets Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "BG Eraser",
-      "url": "https://aieraser.netlify.app",
-      "description": "Supprimez l'arrière-plan de vos images gratuitement en quelques secondes avec notre technologie IA.",
-      "applicationCategory": "DesignApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "WESBRO"
-      }
-    }
-    </script>
-
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>WorldBeats Radio - Stations du Monde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #12161f;
+            --bg-elevated: #1a1f2e;
+            --bg-hover: #242938;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-normal: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-muted: #718096;
+            --haiti-blue: #00209f;
+            --haiti-red: #d21034;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
         body {
-            background: #f8f9fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 1200px;
+        .app-container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 16px;
+            padding-bottom: 100px;
         }
 
-        header {
+        /* Header */
+        .header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+            padding: 16px 0;
+        }
+
+        .flag-indicator {
+            display: flex;
+            width: 80px;
+            height: 4px;
+            margin: 0 auto 16px;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .flag-blue { flex: 1; background: var(--haiti-blue); }
+        .flag-red { flex: 1; background: var(--haiti-red); }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: var(--bg-elevated);
+            border: 2px solid var(--border-normal);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .logo-container i {
+            font-size: 28px;
+            color: var(--haiti-blue);
         }
 
         h1 {
-            color: #2A4DF4;
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: clamp(1.75rem, 6vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
         }
 
-        h2 {
-            color: #333;
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
+        .subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
-        .tagline {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .upload-section {
-            background: white;
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: center;
-            position: relative;
-        }
-
-        .upload-zone {
-            border: 2px dashed #2A4DF4;
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            margin: 2rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .upload-zone:hover {
-            background: #f4f6ff;
-            transform: translateY(-2px);
-        }
-
-        #preview {
-            max-width: 100%;
-            max-height: 500px;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        /* Sticky Player */
+        .sticky-player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-normal);
+            padding: 12px 16px;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
             display: none;
         }
 
-        button {
-            background: #2A4DF4;
-            color: white;
-            border: none;
-            padding: 15px 35px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            font-weight: 600;
+        .sticky-player.active {
+            display: block;
         }
 
-        button:hover {
-            background: #1A3AC7;
-            transform: translateY(-2px);
-        }
-
-        .loading {
-            display: none;
-            margin: 2rem 0;
-        }
-
-        .loading-spinner {
-            width: 45px;
-            height: 45px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #2A4DF4;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .download-section {
-            display: none;
-            margin-top: 2rem;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .features-section {
-            margin: 4rem 0;
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            padding: 1.5rem;
-            border-radius: 10px;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #2A4DF4;
-        }
-
-        .feature-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .how-it-works {
-            margin: 4rem 0;
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        .steps {
-            margin-top: 2rem;
-        }
-
-        .step {
+        .player-compact {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            gap: 12px;
         }
 
-        .step-number {
-            background: #2A4DF4;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .player-artwork-small {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--bg-elevated);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            margin-right: 1rem;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .player-artwork-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .equalizer-small {
+            display: flex;
+            gap: 3px;
+            align-items: flex-end;
+            height: 24px;
+        }
+
+        .eq-bar-small {
+            width: 4px;
+            background: var(--haiti-blue);
+            border-radius: 2px;
+            animation: eq 0.6s ease-in-out infinite;
+        }
+
+        .eq-bar-small:nth-child(1) { height: 30%; animation-delay: 0s; }
+        .eq-bar-small:nth-child(2) { height: 60%; animation-delay: 0.1s; }
+        .eq-bar-small:nth-child(3) { height: 40%; animation-delay: 0.2s; }
+        .eq-bar-small:nth-child(4) { height: 70%; animation-delay: 0.15s; }
+
+        @keyframes eq {
+            0%, 100% { transform: scaleY(0.3); opacity: 0.6; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
+        .player-info-small {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .player-station-small {
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 2px;
+        }
+
+        .player-status {
+            font-size: 11px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .live-indicator {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-red);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .player-controls-small {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-play-small {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--haiti-blue);
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
             flex-shrink: 0;
         }
 
-        .faq-section {
-            margin: 4rem 0;
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        .btn-play-small:active {
+            transform: scale(0.95);
         }
 
-        .faq-item {
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 1.5rem;
+        .btn-stop {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-normal);
+            color: var(--text-secondary);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
         }
 
-        .faq-question {
+        .btn-stop:active {
+            transform: scale(0.95);
+        }
+
+        /* Controls */
+        .controls-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-normal);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: var(--bg-elevated);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .btn-refresh {
+            padding: 14px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-normal);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            color: #666;
-            padding: 2rem;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 -4px 6px rgba(0,0,0,0.05);
+        .country-selector {
+            padding: 14px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-normal);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0aec0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+            min-width: 160px;
+            max-width: 200px;
         }
 
-        .footer-links {
-            margin: 1rem 0;
+        .country-selector:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background-color: var(--bg-elevated);
         }
 
-        .footer-links a {
-            color: #2A4DF4;
-            margin: 0 10px;
-            text-decoration: none;
+        .country-selector:active {
+            transform: scale(0.98);
         }
 
-        .footer-links a:hover {
-            text-decoration: underline;
+        .btn-refresh:active {
+            transform: scale(0.95);
         }
 
-        .alert {
-            padding: 15px;
-            margin: 1rem 0;
-            border-radius: 8px;
+        .btn-refresh.loading .fa-sync-alt {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Categories */
+        .categories-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .categories-bar::-webkit-scrollbar {
             display: none;
         }
 
-        .alert-error {
-            background: #ffe3e3;
-            color: #dc3545;
-            border: 1px solid #ffc9c9;
+        .category-pill {
+            padding: 10px 18px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-normal);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .category-pill:active {
+            transform: scale(0.95);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+        .category-pill.active {
+            background: var(--haiti-blue);
+            border-color: var(--haiti-blue);
+            color: white;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: none;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                display: flex;
             }
-            
+        }
+
+        .stat-card {
+            flex: 1;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-normal);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--haiti-blue);
+        }
+
+        .stat-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .stat-content p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Stations Grid */
+        .stations-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .stations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .stations-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .stations-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .station-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-normal);
+            border-radius: 14px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            touch-action: manipulation;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+        }
+
+        .station-card:active {
+            transform: scale(0.98);
+        }
+
+        .station-card.playing {
+            border-color: var(--accent-green);
+            background: var(--bg-elevated);
+        }
+
+        .station-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            font-size: 22px;
+            color: var(--haiti-blue);
+        }
+
+        .station-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .station-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .station-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            word-break: break-word;
+        }
+
+        .station-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            max-width: 100%;
+        }
+
+        .tag {
+            font-size: 10px;
+            padding: 3px 8px;
+            background: var(--bg-elevated);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .station-quality {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .quality-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent-green);
+            border-radius: 50%;
+        }
+
+        .station-play-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            border: none;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .station-play-btn:active {
+            transform: scale(0.9);
+        }
+
+        .station-card.playing .station-play-btn {
+            background: var(--accent-green);
+        }
+
+        /* States */
+        .state-container {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+
+        .state-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .state-container.loading .state-icon {
+            color: var(--accent-blue);
+            animation: spin 1s linear infinite;
+        }
+
+        .state-container.error .state-icon {
+            color: var(--accent-red);
+        }
+
+        .state-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .state-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px 16px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-normal);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: var(--shadow-xl);
+            animation: slideDown 0.3s ease-out;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .toast.success {
+            background: var(--haiti-blue);
+            border-color: var(--haiti-blue);
+        }
+
+        .toast.error {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateX(-50%) translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-50%) translateY(-100%);
+                opacity: 0;
+            }
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .app-container {
+                padding: 12px;
+                padding-bottom: 90px;
+            }
+
+            .header {
+                margin-bottom: 16px;
+                padding: 8px 0;
+            }
+
+            .logo-container {
+                width: 56px;
+                height: 56px;
+                margin-bottom: 12px;
+            }
+
+            .logo-container i {
+                font-size: 24px;
+            }
+
             h1 {
-                font-size: 2.2rem;
-            }
-            
-            .upload-section {
-                padding: 1.5rem;
+                font-size: 1.5rem;
+                margin-bottom: 4px;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .flag-indicator {
+                width: 60px;
+                height: 3px;
+                margin-bottom: 12px;
+            }
+
+            .controls-bar {
+                gap: 8px;
+                margin-bottom: 16px;
+                flex-wrap: wrap;
+            }
+
+            .search-input {
+                padding: 12px 12px 12px 40px;
+                font-size: 14px;
+            }
+
+            .search-icon {
+                left: 14px;
+                font-size: 14px;
+            }
+
+            .country-selector {
+                padding: 12px 36px 12px 12px;
+                font-size: 13px;
+                min-width: 120px;
+                background-size: 14px;
+                background-position: right 10px center;
+            }
+
+            .btn-refresh span {
+                display: none;
+            }
+
+            .btn-refresh {
+                padding: 12px;
+                min-width: 44px;
+            }
+
+            .categories-bar {
+                gap: 6px;
+                margin-bottom: 16px;
+            }
+
+            .category-pill {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .station-card {
+                padding: 12px;
+                gap: 10px;
+            }
+
+            .station-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .station-name {
+                font-size: 13px;
+                margin-bottom: 4px;
+            }
+
+            .tag {
+                font-size: 9px;
+                padding: 2px 6px;
+            }
+
+            .station-play-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 12px;
+            }
+
+            .sticky-player {
+                padding: 10px 12px;
+            }
+
+            .player-compact {
+                gap: 10px;
+            }
+
+            .player-artwork-small {
+                width: 44px;
+                height: 44px;
+            }
+
+            .player-station-small {
+                font-size: 13px;
+            }
+
+            .player-status {
+                font-size: 10px;
+            }
+
+            .btn-play-small {
+                width: 44px;
+                height: 44px;
+                font-size: 14px;
+            }
+
+            .btn-stop {
+                width: 36px;
+                height: 36px;
+                font-size: 12px;
+            }
+
+            .state-container {
+                padding: 40px 16px;
+            }
+
+            .state-icon {
+                font-size: 36px;
+                margin-bottom: 12px;
+            }
+
+            .state-title {
+                font-size: 16px;
+            }
+
+            .state-text {
+                font-size: 13px;
+            }
+
+            .footer {
+                padding: 20px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 1.35rem;
+            }
+
+            .station-name {
+                font-size: 12px;
+            }
+
+            .player-station-small {
+                font-size: 12px;
+            }
+
+            .country-selector {
+                font-size: 11px;
+                padding: 10px 32px 10px 10px;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+        }
+
+        /* Prevent grid overflow */
+        #stationsContainer {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 1400px;
+            overflow-x: hidden;
+        }
+
+        /* iOS specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            .sticky-player {
+                padding-bottom: max(12px, env(safe-area-inset-bottom));
+            }
+
+            .app-container {
+                padding-bottom: max(90px, calc(90px + env(safe-area-inset-bottom)));
+            }
+
+            /* Fix for notched iPhones */
+            .toast {
+                top: max(20px, env(safe-area-inset-top));
+            }
+        }
+
+        /* Landscape mode for mobile */
+        @media (max-width: 900px) and (orientation: landscape) {
+            .app-container {
+                padding-bottom: 80px;
+            }
+
+            .sticky-player {
+                padding: 8px 12px;
+            }
+
+            .player-artwork-small {
+                width: 40px;
+                height: 40px;
+            }
+
+            .btn-play-small {
+                width: 40px;
+                height: 40px;
+            }
+
+            .btn-stop {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        /* Better touch targets */
+        @media (hover: none) and (pointer: coarse) {
+            .station-card {
+                min-height: 76px;
+            }
+
+            .station-play-btn {
+                min-width: 40px;
+                min-height: 40px;
+            }
+
+            .category-pill {
+                min-height: 38px;
+            }
+
+            button {
+                min-height: 44px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>BG Eraser</h1>
-            <p class="tagline">Suppression d'arrière-plan IA en un clic • Résultats professionnels • 100% Gratuit</p>
-            <!-- Publicité Adsterra -->
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : 'a5c1ebf7cf042406d8d03cc7e7588522',
-                    'format' : 'iframe',
-                    'height' : 60,
-                    'width' : 468,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="//www.highperformanceformat.com/a5c1ebf7cf042406d8d03cc7e7588522/invoke.js"></script>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="flag-indicator">
+                <div class="flag-blue"></div>
+                <div class="flag-red"></div>
+            </div>
+            <div class="logo-container">
+                <i class="fas fa-broadcast-tower"></i>
+            </div>
+            <h1>WorldBeats Radio</h1>
+            <p class="subtitle">Écoutez le monde en direct</p>
         </header>
 
-        <div class="upload-section">
-            <h2>Supprimez l'arrière-plan de n'importe quelle image instantanément</h2>
-            <p>Notre technologie IA avancée détecte automatiquement les sujets et supprime l'arrière-plan avec précision</p>
-            
-            <div class="alert alert-error" id="errorAlert"></div>
-            
-            <div class="upload-zone" id="dropZone">
-                <p>📤 Glissez votre image ici (JPG/PNG)</p>
-                <p>ou</p>
-                <button id="uploadBtn">Sélectionner un fichier</button>
-                <input type="file" id="fileInput" hidden accept="image/*">
+        <!-- Controls -->
+        <div class="controls-bar">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Rechercher...">
             </div>
+            <select class="country-selector" id="countrySelector">
+                <option value="HT">🇭🇹 Haïti</option>
+                <option value="DO">🇩🇴 Rép. Dominicaine</option>
+                <option value="US">🇺🇸 États-Unis</option>
+                <option value="FR">🇫🇷 France</option>
+                <option value="CA">🇨🇦 Canada</option>
+                <option value="GB">🇬🇧 Royaume-Uni</option>
+                <option value="DE">🇩🇪 Allemagne</option>
+                <option value="ES">🇪🇸 Espagne</option>
+                <option value="IT">🇮🇹 Italie</option>
+                <option value="BR">🇧🇷 Brésil</option>
+                <option value="MX">🇲🇽 Mexique</option>
+                <option value="AR">🇦🇷 Argentine</option>
+                <option value="CO">🇨🇴 Colombie</option>
+                <option value="CU">🇨🇺 Cuba</option>
+                <option value="JM">🇯🇲 Jamaïque</option>
+                <option value="BS">🇧🇸 Bahamas</option>
+                <option value="TT">🇹🇹 Trinidad & Tobago</option>
+                <option value="BB">🇧🇧 Barbade</option>
+                <option value="PR">🇵🇷 Porto Rico</option>
+                <option value="JP">🇯🇵 Japon</option>
+                <option value="CN">🇨🇳 Chine</option>
+                <option value="IN">🇮🇳 Inde</option>
+                <option value="AU">🇦🇺 Australie</option>
+                <option value="ZA">🇿🇦 Afrique du Sud</option>
+                <option value="EG">🇪🇬 Égypte</option>
+                <option value="NG">🇳🇬 Nigeria</option>
+                <option value="KE">🇰🇪 Kenya</option>
+                <option value="MA">🇲🇦 Maroc</option>
+                <option value="DZ">🇩🇿 Algérie</option>
+                <option value="TN">🇹🇳 Tunisie</option>
+                <option value="SN">🇸🇳 Sénégal</option>
+                <option value="CI">🇨🇮 Côte d'Ivoire</option>
+            </select>
+            <button class="btn-refresh" id="refreshBtn">
+                <i class="fas fa-sync-alt"></i>
+                <span>Actualiser</span>
+            </button>
+        </div>
 
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <p>Analyse par IA en cours...</p>
+        <!-- Categories -->
+        <div class="categories-bar" id="categoriesBar">
+            <button class="category-pill active" data-category="all">Toutes</button>
+            <button class="category-pill" data-category="news">Actualités</button>
+            <button class="category-pill" data-category="music">Musique</button>
+            <button class="category-pill" data-category="gospel">Gospel</button>
+            <button class="category-pill" data-category="talk">Talk</button>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-radio"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="stationCount">0</h3>
+                    <p>Stations</p>
+                </div>
             </div>
-
-            <img id="preview" alt="Résultat de la suppression d'arrière-plan" loading="lazy">
-
-            <div class="download-section">
-                <button id="downloadBtn">Télécharger l'image sans fond</button>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="currentCountryName">Haïti</h3>
+                    <p>Pays actuel</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-signal"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>24/7</h3>
+                    <p>En direct</p>
+                </div>
             </div>
         </div>
 
-        <div class="features-section">
-            <h2>Pourquoi choisir BG Eraser?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-title">Rapide et Simple</div>
-                    <p>Supprimez l'arrière-plan en quelques secondes sans compétences techniques</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <div class="feature-title">Technologie IA avancée</div>
-                    <p>Notre algorithme intelligent détecte parfaitement les contours et les détails</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💯</div>
-                    <div class="feature-title">Haute Qualité</div>
-                    <p>Obtenez des images professionnelles pour vos projets personnels ou commerciaux</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <div class="feature-title">Sécurisé</div>
-                    <p>Vos images sont traitées en toute sécurité et ne sont jamais conservées</p>
-                </div>
+        <!-- Stations Grid -->
+        <div id="stationsContainer">
+            <div class="state-container loading">
+                <i class="fas fa-spinner state-icon"></i>
+                <h3 class="state-title">Chargement</h3>
+                <p class="state-text">Récupération des stations depuis Radio Browser...</p>
             </div>
         </div>
 
-        <div class="how-it-works">
-            <h2>Comment ça marche</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <strong>Téléchargez votre image</strong>
-                        <p>Glissez-déposez votre photo ou cliquez pour la sélectionner (JPG ou PNG)</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <strong>Traitement IA automatique</strong>
-                        <p>Notre intelligence artificielle analyse et supprime l'arrière-plan instantanément</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <strong>Téléchargez le résultat</strong>
-                        <p>Récupérez votre image avec fond transparent (format PNG) prête à l'emploi</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-section">
-            <h2>Questions fréquentes</h2>
-            <div class="faq-item">
-                <div class="faq-question">Est-ce que BG Eraser est vraiment gratuit?</div>
-                <div class="faq-answer">Oui, notre outil de suppression d'arrière-plan est 100% gratuit et sans filigrane.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Quels formats d'image sont supportés?</div>
-                <div class="faq-answer">BG Eraser prend en charge les formats JPG et PNG. Le résultat est toujours fourni en PNG pour préserver la transparence.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Mes images sont-elles conservées sur vos serveurs?</div>
-                <div class="faq-answer">Non, nous ne stockons pas vos images. Elles sont traitées instantanément et supprimées après le traitement.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Quelle est la taille maximale acceptée?</div>
-                <div class="faq-answer">La taille maximale acceptée est de 5 Mo par image.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Puis-je utiliser les images pour un usage commercial?</div>
-                <div class="faq-answer">Oui, vous pouvez utiliser les images traitées pour tout usage personnel ou commercial.</div>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2025 WESBRO. Tous droits réservés.</p>
-            <div class="footer-links">
-                <a href="#">Politique de confidentialité</a>
-                <a href="#">Conditions d'utilisation</a>
-                <a href="#">Contact</a>
-            </div>
-            <p>Propulsé par la technologie IA de pointe</p>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🌍 Découvrez le monde en musique | © 2024 WESBRO</p>
         </footer>
     </div>
 
-    <script>
-        // Configuration (VOTRE CLÉ API EST DÉJÀ INTÉGRÉE)
-        const API_KEY = 'nS3sjxPSwup5tVaYCEx6ZNEm'; // Votre clé API
-        const API_URL = 'https://api.remove.bg/v1.0/removebg';
+    <!-- Sticky Player -->
+    <div class="sticky-player" id="stickyPlayer">
+        <div class="player-compact">
+            <div class="player-artwork-small" id="playerArtworkSmall">
+                <div class="equalizer-small" id="equalizerSmall">
+                    <div class="eq-bar-small"></div>
+                    <div class="eq-bar-small"></div>
+                    <div class="eq-bar-small"></div>
+                    <div class="eq-bar-small"></div>
+                </div>
+            </div>
+            <div class="player-info-small">
+                <div class="player-station-small" id="playerStationSmall">-</div>
+                <div class="player-status">
+                    <span class="live-indicator"></span>
+                    <span>En direct</span>
+                </div>
+            </div>
+            <div class="player-controls-small">
+                <button class="btn-play-small" id="playBtnSmall">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button class="btn-stop" id="stopBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
-        // Éléments DOM
-        const elements = {
-            dropZone: document.getElementById('dropZone'),
-            fileInput: document.getElementById('fileInput'),
-            uploadBtn: document.getElementById('uploadBtn'),
-            preview: document.getElementById('preview'),
-            loading: document.querySelector('.loading'),
-            downloadSection: document.querySelector('.download-section'),
-            downloadBtn: document.getElementById('downloadBtn'),
-            errorAlert: document.getElementById('errorAlert')
+    <audio id="audioPlayer" preload="none" crossorigin="anonymous"></audio>
+
+    <script>
+        // Application State
+        let allStations = [];
+        let filteredStations = [];
+        let currentStation = null;
+        let isPlaying = false;
+        let currentCategory = 'all';
+        let audioContext = null;
+        let currentCountry = 'HT'; // Default to Haiti
+
+        // Radio Browser API endpoints
+        const API_SERVERS = [
+            'https://de1.api.radio-browser.info',
+            'https://nl1.api.radio-browser.info',
+            'https://at1.api.radio-browser.info'
+        ];
+
+        // Country names for display
+        const COUNTRY_NAMES = {
+            'HT': 'Haïti',
+            'DO': 'République Dominicaine',
+            'US': 'États-Unis',
+            'FR': 'France',
+            'CA': 'Canada',
+            'GB': 'Royaume-Uni',
+            'DE': 'Allemagne',
+            'ES': 'Espagne',
+            'IT': 'Italie',
+            'BR': 'Brésil',
+            'MX': 'Mexique',
+            'AR': 'Argentine',
+            'CO': 'Colombie',
+            'CU': 'Cuba',
+            'JM': 'Jamaïque',
+            'BS': 'Bahamas',
+            'TT': 'Trinidad & Tobago',
+            'BB': 'Barbade',
+            'PR': 'Porto Rico',
+            'JP': 'Japon',
+            'CN': 'Chine',
+            'IN': 'Inde',
+            'AU': 'Australie',
+            'ZA': 'Afrique du Sud',
+            'EG': 'Égypte',
+            'NG': 'Nigeria',
+            'KE': 'Kenya',
+            'MA': 'Maroc',
+            'DZ': 'Algérie',
+            'TN': 'Tunisie',
+            'SN': 'Sénégal',
+            'CI': 'Côte d\'Ivoire'
         };
 
-        // Gestionnaires d'événements
-        elements.uploadBtn.addEventListener('click', () => elements.fileInput.click());
-        elements.fileInput.addEventListener('change', handleFileSelect);
-        
-        // Glisser-déposer
-        elements.dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            elements.dropZone.style.backgroundColor = '#f4f6ff';
-        });
+        // Default station image for stations without logo
+        const DEFAULT_STATION_IMAGE = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDIwOWY7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2QyMTAzNDtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2dyYWQpIi8+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMTAiIGZpbGw9IiNmZmYiLz4KICA8cGF0aCBkPSJNIDEwMCw2MCBMIDE0MCwxMDAgTCAxMDAsOTAgWiIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAxMDAsNjAgTCA2MCwxMDAgTCAxMDAsOTAgWiIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC44Ii8+Cjwvc3ZnPgo=';
 
-        elements.dropZone.addEventListener('dragleave', () => {
-            elements.dropZone.style.backgroundColor = 'white';
-        });
+        // DOM Elements
+        const audioPlayer = document.getElementById('audioPlayer');
+        const searchInput = document.getElementById('searchInput');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const countrySelector = document.getElementById('countrySelector');
+        const stationsContainer = document.getElementById('stationsContainer');
+        const stickyPlayer = document.getElementById('stickyPlayer');
+        const playerStationSmall = document.getElementById('playerStationSmall');
+        const playerArtworkSmall = document.getElementById('playerArtworkSmall');
+        const playBtnSmall = document.getElementById('playBtnSmall');
+        const stopBtn = document.getElementById('stopBtn');
+        const equalizerSmall = document.getElementById('equalizerSmall');
+        const stationCount = document.getElementById('stationCount');
+        const currentCountryName = document.getElementById('currentCountryName');
+        const categoriesBar = document.getElementById('categoriesBar');
 
-        elements.dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            elements.dropZone.style.backgroundColor = 'white';
-            const file = e.dataTransfer.files[0];
-            validateAndProcess(file);
-        });
-
-        // Fonctions principales
-        function handleFileSelect(e) {
-            const file = e.target.files[0];
-            validateAndProcess(file);
-        }
-
-        function validateAndProcess(file) {
-            elements.errorAlert.style.display = 'none';
+        // Fetch stations from Radio Browser API
+        async function fetchStationsFromAPI(countryCode = 'HT') {
+            currentCountry = countryCode;
+            const countryName = COUNTRY_NAMES[countryCode];
             
-            if (!file) {
-                showError('Aucun fichier sélectionné.');
-                return;
+            // Update country name in stats
+            if (currentCountryName) {
+                currentCountryName.textContent = countryName;
             }
             
-            if (!file.type.match(/image\/(png|jpeg|jpg)/)) {
-                showError('Format non supporté. Veuillez utiliser une image JPG/PNG.');
-                return;
+            showLoading(`Connexion à Radio Browser API (${countryName})...`);
+            
+            for (const server of API_SERVERS) {
+                try {
+                    console.log(`Trying server: ${server} for country: ${countryCode}`);
+                    
+                    // Fetch stations by country code
+                    const response = await fetch(`${server}/json/stations/bycountrycodeexact/${countryCode}`, {
+                        method: 'GET',
+                        headers: {
+                            'User-Agent': 'RadioHaitiApp/1.0',
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    console.log(`Fetched ${data.length} stations from ${server}`);
+
+                    if (data && data.length > 0) {
+                        // Process and categorize stations
+                        allStations = data
+                            .filter(station => {
+                                // Filter out broken stations
+                                const hasUrl = station.url_resolved || station.url;
+                                const notBroken = !station.lastcheckok || station.lastcheckok === 1;
+                                return hasUrl && notBroken;
+                            })
+                            .map(station => ({
+                                name: station.name,
+                                url: station.url_resolved || station.url,
+                                favicon: station.favicon,
+                                tags: station.tags ? station.tags.split(',').filter(t => t.trim()).slice(0, 2) : [],
+                                bitrate: station.bitrate || 128,
+                                codec: station.codec || 'MP3',
+                                country: station.country || COUNTRY_NAMES[countryCode],
+                                state: station.state || '',
+                                votes: station.votes || 0,
+                                clickcount: station.clickcount || 0,
+                                category: categorizeStation(station.name, station.tags),
+                                stationuuid: station.stationuuid
+                            }))
+                            .sort((a, b) => {
+                                // Sort by popularity (votes + clicks)
+                                const scoreA = a.votes + (a.clickcount / 100);
+                                const scoreB = b.votes + (b.clickcount / 100);
+                                return scoreB - scoreA;
+                            });
+
+                        // Register click for server statistics
+                        registerServerClick(server);
+                        
+                        showToast(`✅ ${allStations.length} stations ${COUNTRY_NAMES[countryCode]} chargées`, 'success');
+                        applyFilters();
+                        return;
+                    }
+                } catch (error) {
+                    console.error(`Error with server ${server}:`, error);
+                }
             }
 
-            if (file.size > 5000000) { // 5MB
-                showError('La taille maximale est de 5MB.');
-                return;
-            }
-
-            showPreview(file);
-            processImage(file);
+            // If all servers fail
+            showError(`Impossible de charger les stations de ${COUNTRY_NAMES[countryCode]}`);
+            stationsContainer.innerHTML = `
+                <div class="state-container error">
+                    <i class="fas fa-exclamation-triangle state-icon"></i>
+                    <h3 class="state-title">Erreur de chargement</h3>
+                    <p class="state-text">Impossible de se connecter à Radio Browser API</p>
+                </div>
+            `;
         }
 
-        function showPreview(file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                elements.preview.src = e.target.result;
-                elements.preview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        }
-
-        async function processImage(file) {
+        // Register click to help Radio Browser stats
+        async function registerServerClick(server) {
             try {
-                elements.loading.style.display = 'block';
-                elements.downloadSection.style.display = 'none';
+                await fetch(`${server}/json/servers`, {
+                    headers: { 'User-Agent': 'RadioHaitiApp/1.0' }
+                });
+            } catch (e) {
+                // Silent fail
+            }
+        }
 
-                const formData = new FormData();
-                formData.append('image_file', file);
-                formData.append('size', 'auto');
+        // Categorize station based on name and tags
+        function categorizeStation(name, tags) {
+            const nameL = name.toLowerCase();
+            const tagsL = tags ? tags.toLowerCase() : '';
+            const combined = nameL + ' ' + tagsL;
 
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'X-Api-Key': API_KEY
-                    },
-                    body: formData
+            if (combined.includes('gospel') || combined.includes('christian') || combined.includes('church') || combined.includes('religion')) {
+                return 'gospel';
+            }
+            if (combined.includes('news') || combined.includes('info') || combined.includes('actualit') || combined.includes('radio metropole') || combined.includes('signal')) {
+                return 'news';
+            }
+            if (combined.includes('talk') || combined.includes('discussion') || combined.includes('debat')) {
+                return 'talk';
+            }
+            if (combined.includes('kompa') || combined.includes('compas') || combined.includes('konpa')) {
+                return 'music';
+            }
+            
+            return 'music'; // Default category
+        }
+
+        // Initialize
+        function init() {
+            attachEventListeners();
+            fetchStationsFromAPI();
+            
+            // iOS Audio Context unlock
+            document.addEventListener('touchstart', unlockAudio, { once: true });
+            document.addEventListener('click', unlockAudio, { once: true });
+        }
+
+        // Unlock audio for iOS
+        function unlockAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            audioPlayer.play().then(() => audioPlayer.pause()).catch(() => {});
+        }
+
+        // Event Listeners
+        function attachEventListeners() {
+            searchInput.addEventListener('input', applyFilters);
+            refreshBtn.addEventListener('click', handleRefresh);
+            
+            // Country selector change
+            countrySelector.addEventListener('change', (e) => {
+                const selectedCountry = e.target.value;
+                if (selectedCountry !== currentCountry) {
+                    // Stop current playback
+                    if (isPlaying) {
+                        stopPlayback();
+                    }
+                    // Load new country stations
+                    fetchStationsFromAPI(selectedCountry);
+                }
+            });
+            
+            categoriesBar.addEventListener('click', (e) => {
+                if (e.target.classList.contains('category-pill')) {
+                    document.querySelectorAll('.category-pill').forEach(btn => 
+                        btn.classList.remove('active')
+                    );
+                    e.target.classList.add('active');
+                    currentCategory = e.target.dataset.category;
+                    applyFilters();
+                }
+            });
+
+            playBtnSmall.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePlay();
+            });
+
+            stopBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                stopPlayback();
+            });
+
+            audioPlayer.addEventListener('play', () => {
+                isPlaying = true;
+                updatePlayerUI();
+            });
+
+            audioPlayer.addEventListener('playing', () => {
+                isPlaying = true;
+                updatePlayerUI();
+            });
+
+            audioPlayer.addEventListener('pause', () => {
+                isPlaying = false;
+                updatePlayerUI();
+            });
+
+            audioPlayer.addEventListener('error', (e) => {
+                console.error('Erreur audio:', e);
+                isPlaying = false;
+                updatePlayerUI();
+                // Don't show error toast - silent fail
+            });
+
+            audioPlayer.addEventListener('waiting', () => {
+                console.log('Buffering...');
+            });
+
+            audioPlayer.addEventListener('canplay', () => {
+                console.log('Ready to play');
+            });
+        }
+
+        // Filter Stations
+        function applyFilters() {
+            const query = searchInput.value.toLowerCase().trim();
+
+            filteredStations = allStations.filter(station => {
+                const matchesSearch = !query || 
+                    station.name.toLowerCase().includes(query) ||
+                    station.state.toLowerCase().includes(query) ||
+                    station.tags.some(tag => tag.toLowerCase().includes(query));
+
+                const matchesCategory = currentCategory === 'all' || 
+                    station.category === currentCategory;
+
+                return matchesSearch && matchesCategory;
+            });
+
+            stationCount.textContent = filteredStations.length;
+            renderStations();
+        }
+
+        // Show Loading
+        function showLoading(message) {
+            stationsContainer.innerHTML = `
+                <div class="state-container loading">
+                    <i class="fas fa-spinner state-icon"></i>
+                    <h3 class="state-title">Chargement</h3>
+                    <p class="state-text">${message}</p>
+                </div>
+            `;
+        }
+
+        // Render Stations
+        function renderStations() {
+            if (filteredStations.length === 0) {
+                stationsContainer.innerHTML = `
+                    <div class="state-container">
+                        <i class="fas fa-search state-icon"></i>
+                        <h3 class="state-title">Aucune station trouvée</h3>
+                        <p class="state-text">Essayez de modifier votre recherche</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const grid = document.createElement('div');
+            grid.className = 'stations-grid';
+
+            filteredStations.forEach(station => {
+                const isCurrentlyPlaying = currentStation && 
+                    currentStation.url === station.url && isPlaying;
+
+                const card = document.createElement('div');
+                card.className = `station-card ${isCurrentlyPlaying ? 'playing' : ''}`;
+                
+                // Use default image if no favicon or if favicon fails to load
+                const stationImage = station.favicon || DEFAULT_STATION_IMAGE;
+                
+                const faviconHTML = `<img src="${stationImage}" alt="${escapeHtml(station.name)}" onerror="this.src='${DEFAULT_STATION_IMAGE}'">`;
+
+                card.innerHTML = `
+                    <div class="station-icon">
+                        ${faviconHTML}
+                    </div>
+                    <div class="station-details">
+                        <div class="station-name">${escapeHtml(station.name)}</div>
+                        <div class="station-tags">
+                            ${station.state ? `<span class="tag">${escapeHtml(station.state)}</span>` : ''}
+                            ${station.bitrate ? `<span class="tag">${station.bitrate}kbps</span>` : ''}
+                            ${station.tags.slice(0, 1).map(tag => 
+                                `<span class="tag">${escapeHtml(tag)}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                    <button class="station-play-btn">
+                        <i class="fas ${isCurrentlyPlaying ? 'fa-pause' : 'fa-play'}"></i>
+                    </button>
+                `;
+
+                card.addEventListener('click', () => playStation(station));
+                grid.appendChild(card);
+            });
+
+            stationsContainer.innerHTML = '';
+            stationsContainer.appendChild(grid);
+        }
+
+        // Play Station
+        async function playStation(station) {
+            // If same station and playing, pause it
+            if (currentStation && currentStation.url === station.url && isPlaying) {
+                audioPlayer.pause();
+                return;
+            }
+
+            // Update current station
+            currentStation = station;
+            
+            // Stop current playback
+            audioPlayer.pause();
+            audioPlayer.src = '';
+            
+            // Show loading state
+            const stationName = station.name.length > 25 ? station.name.substring(0, 25) + '...' : station.name;
+            showToast('▶️ ' + stationName, 'success');
+            
+            // Small delay to ensure clean state
+            setTimeout(async () => {
+                try {
+                    // Register click with Radio Browser API
+                    await registerStationClick(station);
+                    
+                    // Set new source
+                    audioPlayer.src = station.url;
+                    audioPlayer.load();
+                    
+                    const playPromise = audioPlayer.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise
+                            .then(() => {
+                                console.log('Lecture démarrée:', station.name);
+                                stickyPlayer.classList.add('active');
+                                updatePlayerUI();
+                            })
+                            .catch(error => {
+                                console.error('Erreur de lecture:', error);
+                                // Silent fail - just update UI
+                                isPlaying = false;
+                                updatePlayerUI();
+                            });
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    showError('Erreur de connexion');
+                }
+            }, 100);
+        }
+
+        // Register station click with Radio Browser API
+        async function registerStationClick(station) {
+            // Find a working server and register the click
+            for (const server of API_SERVERS) {
+                try {
+                    if (station.stationuuid) {
+                        await fetch(`${server}/json/url/${station.stationuuid}`, {
+                            headers: { 'User-Agent': 'RadioHaitiApp/1.0' }
+                        });
+                        console.log('Click registered for:', station.name);
+                    }
+                    break;
+                } catch (e) {
+                    // Continue to next server
+                }
+            }
+        }
+
+        // Toggle Play/Pause
+        function togglePlay() {
+            if (!currentStation) return;
+
+            if (isPlaying) {
+                audioPlayer.pause();
+            } else {
+                const playPromise = audioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.error('Erreur:', error);
+                        showError('Erreur de lecture');
+                    });
+                }
+            }
+        }
+
+        // Stop Playback
+        function stopPlayback() {
+            audioPlayer.pause();
+            audioPlayer.src = '';
+            currentStation = null;
+            isPlaying = false;
+            stickyPlayer.classList.remove('active');
+            updatePlayerUI();
+        }
+
+        // Update Player UI
+        function updatePlayerUI() {
+            if (currentStation) {
+                playerStationSmall.textContent = currentStation.name;
+                
+                // Update artwork
+                if (currentStation.favicon) {
+                    playerArtworkSmall.innerHTML = `
+                        <img src="${currentStation.favicon}" alt="${escapeHtml(currentStation.name)}" onerror="this.src='${DEFAULT_STATION_IMAGE}'">
+                    `;
+                } else {
+                    playerArtworkSmall.innerHTML = `
+                        <img src="${DEFAULT_STATION_IMAGE}" alt="${escapeHtml(currentStation.name)}">
+                    `;
+                }
+                
+                const eqBars = playerArtworkSmall.querySelectorAll('.eq-bar-small');
+                eqBars.forEach(bar => {
+                    bar.style.animationPlayState = isPlaying ? 'running' : 'paused';
                 });
 
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.errors ? errorData.errors[0].title : 'Erreur inconnue');
-                }
-
-                const blob = await response.blob();
-                const resultUrl = URL.createObjectURL(blob);
-                
-                elements.preview.src = resultUrl;
-                elements.downloadSection.style.display = 'block';
-                
-                // Nettoyage mémoire
-                elements.downloadBtn.onclick = () => {
-                    const link = document.createElement('a');
-                    link.download = `sans-fond-${Date.now()}.png`;
-                    link.href = resultUrl;
-                    link.click();
-                    URL.revokeObjectURL(resultUrl);
-                };
-                
-            } catch (error) {
-                console.error('Erreur:', error);
-                showError(`Échec du traitement : ${error.message}`);
-            } finally {
-                elements.loading.style.display = 'none';
+                playBtnSmall.innerHTML = `<i class="fas ${isPlaying ? 'fa-pause' : 'fa-play'}"></i>`;
             }
+
+            renderStations();
         }
 
-        function showError(message) {
-            elements.errorAlert.textContent = message;
-            elements.errorAlert.style.display = 'block';
+        // Show Toast
+        function showToast(message, type = 'error') {
+            // Remove any existing toasts
+            const existingToasts = document.querySelectorAll('.toast');
+            existingToasts.forEach(t => t.remove());
+
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideUp 0.3s ease-out';
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
         }
+
+        // Show Error
+        function showError(message) {
+            showToast(message, 'error');
+        }
+
+        // Refresh Stations
+        function handleRefresh() {
+            refreshBtn.classList.add('loading');
+            
+            // Stop current playback
+            if (isPlaying) {
+                stopPlayback();
+            }
+            
+            // Clear current stations
+            allStations = [];
+            filteredStations = [];
+            
+            // Get selected country
+            const selectedCountry = countrySelector.value;
+            
+            // Fetch new data
+            fetchStationsFromAPI(selectedCountry).finally(() => {
+                refreshBtn.classList.remove('loading');
+            });
+        }
+
+        // Utility Functions
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Prevent double-tap zoom on iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Start Application
+        init();
     </script>
 </body>
 </html>
-     
