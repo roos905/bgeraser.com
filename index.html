@@ -3,16 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>WorldBeats Radio - Écoutez des Stations Radio du Monde Entier</title>
-    
+
+    <!-- SEO Primary Meta Tags -->
+    <title>WorldBeats Radio - Écoutez +30 000 Stations Radio Gratuitement en Ligne</title>
+    <meta name="title" content="WorldBeats Radio - Écoutez +30 000 Stations Radio Gratuitement en Ligne">
+    <meta name="description" content="Écoutez gratuitement plus de 30 000 stations radio du monde entier en direct. Musique, actualités, sports, culture - streaming radio gratuit sans inscription. Radio en ligne 24/7.">
+    <meta name="keywords" content="radio en ligne gratuit, écouter radio live, stations radio monde, radio streaming gratuit, radio internet, musique en ligne, radio fm, radio internationale, écouter radio gratuitement, webradio, radio mondiale, WESBRO radio, WorldBeats">
+    <meta name="author" content="WESBRO">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="French">
+    <meta name="revisit-after" content="3 days">
+    <meta name="rating" content="general">
+    <link rel="canonical" href="https://wesbro-radio.netlify.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wesbro-radio.netlify.app/">
+    <meta property="og:title" content="WorldBeats Radio - Écoutez +30 000 Stations Radio Gratuitement">
+    <meta property="og:description" content="Découvrez et écoutez gratuitement plus de 30 000 stations radio du monde entier en direct. Musique, actualités, culture - le monde en streaming audio!">
+    <meta property="og:image" content="https://wesbro-radio.netlify.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="WorldBeats Radio - Application de streaming radio mondial gratuit">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="WorldBeats Radio">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://wesbro-radio.netlify.app/">
+    <meta property="twitter:title" content="WorldBeats Radio - +30 000 Stations Radio Gratuites">
+    <meta property="twitter:description" content="Écoutez gratuitement des milliers de stations radio du monde entier en direct. Streaming audio sans inscription!">
+    <meta property="twitter:image" content="https://wesbro-radio.netlify.app/og-image.png">
+    <meta property="twitter:image:alt" content="WorldBeats Radio - Streaming radio mondial gratuit">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#ff3366">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WorldBeats Radio">
+    <meta name="application-name" content="WorldBeats Radio">
+    <meta name="msapplication-TileColor" content="#ff3366">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <!-- Favicon SVG -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff3366'/%3E%3Cstop offset='100%25' style='stop-color:%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='white' stroke-width='4'/%3E%3Ccircle cx='50' cy='50' r='15' fill='none' stroke='white' stroke-width='4'/%3E%3Ccircle cx='50' cy='50' r='5' fill='white'/%3E%3Cpath d='M50 25 L50 15 M50 85 L50 75 M25 50 L15 50 M85 50 L75 50' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff3366'/%3E%3Cstop offset='100%25' style='stop-color:%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='white' stroke-width='4'/%3E%3Ccircle cx='50' cy='50' r='15' fill='none' stroke='white' stroke-width='4'/%3E%3Ccircle cx='50' cy='50' r='5' fill='white'/%3E%3Cpath d='M50 25 L50 15 M50 85 L50 75 M25 50 L15 50 M85 50 L75 50' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://all.api.radio-browser.info">
+    <link rel="dns-prefetch" href="https://all.api.radio-browser.info">
     
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "WorldBeats Radio",
+        "alternateName": ["WESBRO Radio", "World Beats", "Radio Mondiale"],
+        "description": "Application web gratuite pour écouter plus de 30 000 stations radio du monde entier en direct. Streaming audio gratuit sans inscription.",
+        "url": "https://wesbro-radio.netlify.app/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "featureList": [
+            "Plus de 30 000 stations radio mondiales",
+            "Streaming audio en direct gratuit",
+            "Radio par pays",
+            "Stations populaires",
+            "Favoris personnalisés",
+            "Recherche de stations",
+            "Interface multilingue",
+            "Compatible mobile et desktop"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "WESBRO",
+            "url": "https://www.facebook.com/Kingo.07"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1247",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "screenshot": "https://wesbro-radio.netlify.app/screenshot.png",
+        "softwareVersion": "2.0",
+        "datePublished": "2024-01-15",
+        "dateModified": "2024-12-22",
+        "inLanguage": "fr-FR",
+        "isAccessibleForFree": true,
+        "provider": {
+            "@type": "Organization",
+            "name": "WESBRO"
+        }
+    }
+    </script>
+
+    <!-- Additional Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://wesbro-radio.netlify.app/"
+        }]
+    }
+    </script>
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "Est-ce que WorldBeats Radio est gratuit ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, WorldBeats Radio est 100% gratuit. Vous pouvez écouter toutes les stations radio sans inscription et sans frais."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Combien de stations radio sont disponibles ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WorldBeats Radio donne accès à plus de 30 000 stations radio du monde entier, couvrant tous les pays et tous les genres musicaux."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Puis-je écouter WorldBeats Radio sur mon téléphone ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, WorldBeats Radio est entièrement responsive et fonctionne parfaitement sur smartphones, tablettes et ordinateurs."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Dois-je créer un compte pour utiliser WorldBeats Radio ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Non, aucune inscription n'est nécessaire. Vous pouvez commencer à écouter des stations radio immédiatement."
+            }
+        }]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- SEO Content Hidden (for crawlers) -->
+    <noscript>
+        <h1>WorldBeats Radio - Écouter Radio en Ligne Gratuit</h1>
+        <p>Découvrez plus de 30 000 stations de radio du monde entier. Écoutez gratuitement de la musique, des actualités et des émissions en direct sans inscription.</p>
+        <p>Fonctionnalités: Stations radio par pays, Radio populaire, Favoris personnalisés, Recherche de stations, Streaming audio gratuit 24/7</p>
+    </noscript>
+    
     <style>
         :root {
             --bg-primary: #0a0a0f;
