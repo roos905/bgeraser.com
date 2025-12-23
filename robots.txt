@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://wesbro-radio.netlify.app/sitemap.xml
+
+# Empêcher l'indexation des fichiers inutiles
+Disallow: /node_modules/
+Disallow: /*.json$
