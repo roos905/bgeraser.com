@@ -1,0 +1,27 @@
+{
+  "name": "WorldBeats Radio - Stations Radio Mondiales Gratuites",
+  "short_name": "WorldBeats",
+  "description": "Écoutez plus de 30 000 stations radio du monde entier gratuitement",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#ff3366",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "music", "news"],
+  "lang": "fr-FR",
+  "dir": "ltr"
+}
