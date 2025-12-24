@@ -177,7 +177,7 @@
         /* Header */
         header {
             background: var(--bg-secondary);
-            padding: 20px 20px;
+            padding: 16px 20px;
             border-bottom: 1px solid var(--border-color);
             flex-shrink: 0;
             position: relative;
@@ -196,36 +196,42 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            flex: 1;
-            background: linear-gradient(135deg, rgba(255, 51, 102, 0.1), rgba(124, 58, 237, 0.1));
-            padding: 10px 20px;
-            border-radius: 16px;
         }
 
-        .logo-image {
-            height: 120px;
-            width: auto;
-            object-fit: contain;
-            max-width: 100%;
-            filter: drop-shadow(0 2px 8px rgba(255, 51, 102, 0.3));
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            box-shadow: 0 4px 15px var(--glow-pink);
+            animation: pulse-glow 2s ease-in-out infinite;
         }
 
-        @media (max-width: 600px) {
-            .logo {
-                padding: 8px 15px;
-            }
-            .logo-image {
-                height: 90px;
-            }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 4px 15px var(--glow-pink); }
+            50% { box-shadow: 0 4px 25px var(--glow-pink); }
         }
 
-        @media (max-width: 400px) {
-            .logo {
-                padding: 6px 12px;
-            }
-            .logo-image {
-                height: 70px;
-            }
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text span {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .header-actions {
@@ -642,7 +648,7 @@
         /* Player Bar - Au-dessus de la pub */
         .player-bar {
             position: fixed;
-            bottom: 66px;
+            bottom: 66px; /* Hauteur de la bannière pub */
             left: 0;
             right: 0;
             background: var(--bg-secondary);
@@ -909,6 +915,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .logo-text span {
+                display: none;
+            }
+
             .player-btn.secondary {
                 display: none;
             }
@@ -936,7 +946,35 @@
             }
         }
 
-        /* Fixed Ad Banner */
+        /* Footer (inside scroll) */
+        .app-footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 16px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content span {
+            font-size: 16px;
+        }
+
+        .footer-sep {
+            font-size: 13px !important;
+            opacity: 0.5;
+        }
+
+        /* Fixed Ad Banner - En bas, sous le player */
         .ad-banner-fixed {
             position: fixed;
             bottom: 0;
@@ -968,7 +1006,13 @@
         <header>
             <div class="header-content">
                 <div class="logo">
-                    <img src="https://i.postimg.cc/y8YDdN60/1000009894-removebg-preview.png" alt="WorldBeats Radio" class="logo-image">
+                    <div class="logo-icon">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>WorldBeats Radio</h1>
+                        <span>Live Worldwide</span>
+                    </div>
                 </div>
                 <div class="header-actions">
                     <a href="https://www.facebook.com/Kingo.07" target="_blank" rel="noopener noreferrer" class="facebook-header-btn" aria-label="Suivre sur Facebook">
@@ -1003,6 +1047,13 @@
                     <div class="loading-spinner"></div>
                     <span class="loading-text">Chargement des stations...</span>
                 </div>
+
+                <!-- Footer inside scroll -->
+                <footer class="app-footer" id="appFooter">
+                    <div class="footer-content">
+                        <span>🌍</span> Découvrir le monde en musique <span class="footer-sep">|</span> © WESBRO
+                    </div>
+                </footer>
             </div>
         </main>
 
@@ -1075,7 +1126,7 @@
             currentCountry: null,
             currentStation: null,
             isPlaying: false,
-            favorites: JSON.parse(localStorage.getItem('radioFavorites') || '[]'),
+            favorites: [],
             searchQuery: ''
         };
 
@@ -1284,6 +1335,7 @@
                 const stationInfo = card.querySelector('.station-info');
                 const stationFavicon = card.querySelector('.station-favicon');
 
+                // Play on click (on card body, not fav button)
                 [playIndicator, stationInfo, stationFavicon].forEach(el => {
                     if (el) {
                         el.addEventListener('click', (e) => {
@@ -1298,6 +1350,7 @@
                 });
             });
 
+            // Favorite buttons
             document.querySelectorAll('.station-fav-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -1326,12 +1379,12 @@
                 }
             }
 
-            localStorage.setItem('radioFavorites', JSON.stringify(state.favorites));
-
+            // Update player UI if this station is currently playing
             if (state.currentStation && state.currentStation.stationuuid === station.stationuuid) {
                 updatePlayerUI();
             }
 
+            // Re-render favorites view if we're on it
             if (state.currentView === 'favorites') {
                 renderFavorites();
             }
@@ -1408,6 +1461,7 @@
                 if (indicator) {
                     indicator.className = `fas ${isPlaying && state.isPlaying ? 'fa-pause' : 'fa-play'}`;
                 }
+                // Update fav button state
                 const favBtn = card.querySelector('.station-fav-btn');
                 if (favBtn) {
                     const isFav = state.favorites.some(f => f.stationuuid === uuid);
@@ -1427,7 +1481,6 @@
                 state.favorites.push(state.currentStation);
             }
 
-            localStorage.setItem('radioFavorites', JSON.stringify(state.favorites));
             updatePlayerUI();
 
             if (state.currentView === 'favorites') {
@@ -1441,6 +1494,7 @@
             state.countries = await fetchCountries();
             renderCountries(state.countries);
 
+            // Event Listeners
             elements.playPauseBtn.addEventListener('click', togglePlayPause);
             elements.favoriteBtn.addEventListener('click', toggleFavorite);
 
@@ -1486,6 +1540,7 @@
                 }
             });
 
+            // Audio Events
             elements.audioPlayer.addEventListener('playing', () => {
                 state.isPlaying = true;
                 updatePlayerUI();
